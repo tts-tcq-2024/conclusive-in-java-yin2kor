@@ -1,35 +1,44 @@
-# TDD Driven StringCalculator
+# Refactoring legacy code
 
-Build a StringCalculator functionality that can take up to two numbers, separated by commas, and will return their sum. 
-for example “” or “1” or “1,2” as inputs.
+Legacy code can be complex. It often starts simple, but collects complexity as the product and its customers evolve.
 
-> DO NOT jump into implementation! Read the example and the starting task below.
+This repository has legacy code in it. Let's refactor to enable evolution without adding complexity.
 
-- For an empty string it will return 0
-- Allow the Add method to handle an unknown amount of numbers
-- Allow the Add method to handle new lines between numbers (instead of commas).
-  - the following input is ok: “1\n2,3” (will equal 6)
-  - the following input is NOT ok: “1,\n” (not need to prove it - just clarifying)
-- Support different delimiters : to change a delimiter, the beginning of the string will contain a separate line that looks like this: “//[delimiter]\n[numbers…]” for example “//;\n1;2” should return three where the default delimiter is ‘;’ .
-the first line is optional. all existing scenarios should still be supported
-- Calling Method with a negative number will throw an exception “negatives not allowed” - and the negative that was passed. if there are multiple negatives, show all of them in the exception message.
-- Numbers bigger than 1000 should be ignored, so adding 2 + 1001 = 2
-- Delimiters can be of any length with the following format: “//[delimiter]\n” for example: “//[***]\n1***2***3” should return 6
+## About this repository
 
-## Tasks
+The objective of the code is to monitor battery temperature and prevent damage:
 
+- Classify the temperature measurement as being too high or too low. This classification depends on the type of cooling. With active cooling, the battery can reach higher temperatures before taking action.
+- Transmit the classification to take action: When the system has a controller, send the classification to it. In the absence of a controller, send the classification via email. In this project, the transmission is 'simulated' by printing on the console.
 
+The [GitHub Actions](https://docs.github.com/en/actions) in this project implement several workflows:
 
-Establish quality parameters:
+- No Duplications: Fails on finding duplication of 3 lines or more. There are no duplications, so this passes.
+- Limit complexity: The limit per function is set at 3 and it's currently failing
+- Build and Run: Runs the tests. It's passing currently, but there are hardly any tests. You need to add more.
+- Enter Reflections: Replace the `_enter` in the **Reflections** section below, within this file. This workflow fails till you replace it with your impressions.
 
-- Ensure  maximum complexity (CCN) per function == 3
+As with any legacy, have a look at the code to understand it better.
 
-- Ensure 100% line and branch coverage at every step
+The 'Build and Run' workflow stores coverage-data as an artifact in the workflow run. You can download it from GitHub Actions.
 
-  
+## The refactoring task
 
-Start Test-driven approach
+Cyclomatic complexity is high in a few places. This indicates potential to steadily increase, as customers ask for changes and new features. Reduce the cyclomatic complexity. In future, it must be possible to add new features with less code-changes and re-testing.
 
-1. Write the smallest possible failing test: give input `"" assert output to be 0 ` .
-2. Write the minimum amount of code that'll make it pass.
-3. Refactor any assumptions, continue to pass this test. Do not add any code without a corresponding test.
+Code coverage is low, because the test code is incomplete. Write more tests to take care of the variations. Track and improve the coverage.
+
+Uncovered lines indicate an opportunity to write tests. Complex and repetitive tests indicate opportunity to simplify the code.
+
+> Caution: High coverage doesn't indicate absence of bugs!
+
+## Reflections
+
+This section is about your regular work / project, not about the code in this repository.
+
+Think about guiding refactoring-work in your regular/project teams. Think of the day-to-day work done in your team, and improving the quality of code.
+
+You have seen a few workflows in this repository. They are quality-gates to prevent duplication, control complexity and prove functionality. Do you think some of them have potential to guide code-improvements in your team? **_enter yes/no**
+
+During the next four weeks, what improvement do you plan in your code-quality practice? (in your regular work, not in this repository!)
+**_enter the practice here**
