@@ -38,7 +38,14 @@ This section is about your regular work / project, not about the code in this re
 
 Think about guiding refactoring-work in your regular/project teams. Think of the day-to-day work done in your team, and improving the quality of code.
 
-You have seen a few workflows in this repository. They are quality-gates to prevent duplication, control complexity and prove functionality. Do you think some of them have potential to guide code-improvements in your team? **_enter yes/no**
+You have seen a few workflows in this repository. They are quality-gates to prevent duplication, control complexity and prove functionality. Do you think some of them have potential to guide code-improvements in your team? yes, quality-gates will definitely help in ensuring everyone codes to the best possible standard
 
 During the next four weeks, what improvement do you plan in your code-quality practice? (in your regular work, not in this repository!)
-**_enter the practice here**
+I am planning on taking a deeper dive into design patterns and advanced coding concepts.
+To ensure I continue to follow the concepts ive learnt during this training, I will take my time to understand the requirements,
+think of the approach I would want to follow while developing the code, and always ensure my code is open for extension,
+no duplication of code is written by implementing object-oriented concepts.
+When working on pre-existing code, I will not shy away from suggesting rework if the code is not properly structured, highly complex, not testable.
+I will implement dependency injection into my development process which will ensure code is not tightly coupled and easily testable.
+I will improve the way I name my classes and variables by looking into well know github repositories.
+I will write test cases to check edge cases to ensure code is working as expected.
