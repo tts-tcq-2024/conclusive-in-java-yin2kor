@@ -4,6 +4,9 @@ import TypewiseAlert.cooler.ICooler;
 import TypewiseAlert.mocks.cooler.MockCooler;
 import TypewiseAlert.mocks.transmitter.MockAlertTarget;
 import TypewiseAlert.transmitter.IAlertTarget;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
 
 public class TypewiseAlertTest {
 
@@ -12,7 +15,8 @@ public class TypewiseAlertTest {
         TypewiseAlert.checkAndAlert(alertTarget, batteryCharacter, temperature);
     }
 
-    public static void runAllTests() {
+    @Test
+    public void runAllTests() {
         MockAlertTarget mockController = new MockAlertTarget();
         ICooler mockCooler = new MockCooler(0, 35);
         // passive cooler and normal temp
@@ -25,5 +29,6 @@ public class TypewiseAlertTest {
         executeTemperatureCheck(-1, mockController, mockCooler);
         assert mockController.mBreachType == BreachType.TOO_LOW;
     }
+
 
 }
